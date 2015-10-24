@@ -1,0 +1,5 @@
+#Ignore temp files used by MS Word
+~*
+*.tmp
+#Ignore balsamiq source files
+*.bmpr
