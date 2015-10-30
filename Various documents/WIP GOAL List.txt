@@ -1,0 +1,15 @@
+•	[G1] Allow a user to make a taxi reservation using the mobile application.
+•	[G2] Allow a user to make a taxi reservation using the web application.
+•	[G3] Grant the possibility to delete a reservation using the mobile application.
+•	[G4] Grant the possibility to delete a reservation using the web application.
+•	[G5] Reduce costumer waiting time. // revise
+•	[G5'] Maximize taxi driver down-time. // revise
+•	[G6] Give the possibility of taxi reservation to the user <<- GOAL //->>SONO REQUISITI, DA GESTIRE LA POSSIBILITA' DI PRENOTARE IN ANTICIPO (feature dei gruppi da 2 persone, come me e te), MA ANCHE @LIVE after the specification of the start and the end of the ride (two hours or more before the ride).
+•	[G7] Allow customer to pay the ride to TAXISPA.
+•	[G8] Allow the taxi driver to reach the right costumer destination.
+•	[G9] Allow the taxi driver to reach the costumer position.
+•	[G10] Notify the taxi driver when there's a ride possiblity.
+•	[G11] Allow the user to check the current price of a ride.
+•	[G12] Allow the taxi driver to see costustumers' requests of ride.
+•	[G13] Notify a costumer with the taxi driver's response.
+•	[G14] Allow a customer to see his/her current position in a ride.
