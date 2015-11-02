@@ -299,7 +299,7 @@
 											"left": 314,
 											"top": 80,
 											"width": 1,
-											"height": 754,
+											"height": 714,
 											"autoResize": false
 										}
 									],
@@ -315,7 +315,7 @@
 									"left": 272,
 									"top": 40,
 									"width": 84.85400390625,
-									"height": 794,
+									"height": 754,
 									"autoResize": false,
 									"stereotypeDisplay": "label",
 									"showVisibility": true,
@@ -497,7 +497,7 @@
 											"left": 621,
 											"top": 80,
 											"width": 1,
-											"height": 754,
+											"height": 715,
 											"autoResize": false
 										}
 									],
@@ -513,7 +513,7 @@
 									"left": 584,
 									"top": 40,
 									"width": 73,
-									"height": 794,
+									"height": 755,
 									"autoResize": false,
 									"stereotypeDisplay": "label",
 									"showVisibility": true,
