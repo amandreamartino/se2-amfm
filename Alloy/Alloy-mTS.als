@@ -58,7 +58,7 @@ fact customerProperties {
 	//a customer can have at most one livereservation in his/her reservations
 	all cus:Customer | lone reg:LiveReservation | reg in cus.reservations
 	//system uses customer positions iff a livereservation is saved in customer reservations
-	no cus:Customer | one reg:LiveReservation | one gps:GPSPosition | cus.currentPosition = gps && not reg in cus.reservations
+	all cus:Customer | no gps:GPSPosition | cus.currentPosition = gps && no res:LiveReservation | res in cus.reservations
 
 }
 
@@ -97,9 +97,9 @@ fact taxiDriverProperties {
 	//if a taxi driver is busy on a reservation then this reservation is taken care by this driver
 	all drv:TaxiDriver | all res:Reservation | (drv.isCurrentlyBusyOn=res implies res.takenCareBy=drv)	
 	//a taxi driver is in a list when he/she is working. gps position must be saved only when the driver is working.
-	all area:Area | all drv: TaxiDriver | (drv in area.queueOfDrivers iff (one gps:GPSPosition | drv.currentPosition=gps))
+	all drv: TaxiDriver | one area:Area | (drv in area.queueOfDrivers iff (one gps:GPSPosition | drv.currentPosition=gps))
 	//every taxi driver is in at most one area at time
-	all drv: TaxiDriver | lone area: Area | drv in area.queueOfDrivers
+	all drv: TaxiDriver | lone area1: Area | drv in area1.queueOfDrivers
 	
 }
 
@@ -111,28 +111,47 @@ fact gpsPositionProperties {
 }
 
 fact liveReservationProperties {
+
+	//if a user has a live reservation in his/her list then is current position is equal to from field of live reservation
+	all res:LiveReservation | all cus:Customer | res in cus.reservations implies res.from=cus.currentPosition
 	
-	//if a customer has a live reservation, from field of live reservation is equal to customer's current location
-	//it means that customer's current gps position is used to make a new live reservation
-	all res:LiveReservation | all cus:Customer | res in cus.reservations implies cus.currentPosition = res.from
+}
+
+assert noCustomersWithSameSSN {
+	
+	all ssn1, ssn2: SSN | all disj cus1, cus2: Customer | cus1.ssn=ssn1 && cus2.ssn=ssn2 implies ssn1!=ssn2
 
 }
 
-pred show [drv:TaxiDriver, drv2:TaxiDriver, res1:LiveReservation, res2:LiveReservation, cus:Customer, cus2:Customer] {
+check noCustomersWithSameSSN for 20
 
-	some res:Reservation | res.takenCareBy=drv
-	no res:Reservation | drv.isCurrentlyBusyOn=res
-	no res:LiveReservation | res in cus.reservations
-/*
-	no area:Area | drv in area.queueOfDrivers
- 	no res3: LiveReservation | res3 in cus2.reservations
-	res1 in cus.reservations
-	res2 in cus.reservations
-	res1.takenCareBy=drv2
-	res2.takenCareBy=drv2
-	drv2.isCurrentlyBusyOn!=res2
-	drv2.isCurrentlyBusyOn!=res1
-*/
+assert noRegisteredUserWithSameID {
+
+	all id1, id2: ID | all disj reg1, reg2: RegisteredUser | reg1.id = id1 && reg2.id = id2 implies id1!=id2
+
 }
 
-run show for 5 but 4 Area, 20 TaxiDriver, 7 Customer , 3 Reservation , 1 LiveReservation
+check noRegisteredUserWithSameID for 20
+
+
+pred show [cus1:Customer, cus2:Customer, cus3:Customer, gps1:GPSPosition, gps2: GPSPosition, live:LiveReservation, live2:LiveReservation] {
+	
+	#cus1.reservations=2
+	#cus2.reservations=3
+	#cus3.reservations=1
+
+	no res:LiveReservation | res in cus3.reservations
+
+	live2 in cus1.reservations
+	live in cus2.reservations
+	live2.from = gps1
+	live.from = gps1	
+
+	#Area=1
+	#Reservation=7
+	#LiveReservation=2
+	#Customer=5
+
+}
+
+run show for 20
