@@ -125,6 +125,14 @@ assert noCustomersWithSameSSN {
 
 check noCustomersWithSameSSN for 20
 
+assert noCustomersWithSameEmail {
+		
+	all email1, email2: Email | all disj cus1, cus2: Customer | cus1.email=email1 && cus2.email=email2 implies email1!=email2	
+
+}
+
+check noCustomersWithSameEmail for 30
+
 assert noRegisteredUserWithSameID {
 
 	all id1, id2: ID | all disj reg1, reg2: RegisteredUser | reg1.id = id1 && reg2.id = id2 implies id1!=id2
@@ -132,6 +140,16 @@ assert noRegisteredUserWithSameID {
 }
 
 check noRegisteredUserWithSameID for 20
+
+assert disjointedAreas {
+	
+	all area1, area2 : Area| all disj x1, x2: Int | all disj y1,y2: Int | area1.xPosition=x1 && area1.yPosition=y1 && area2.xPosition=x2 && area2.yPosition=y2 implies (x1!=x2 or y1=y2)	
+
+}
+
+check disjointedAreas for 20
+
+
 
 
 pred show [cus1:Customer, cus2:Customer, cus3:Customer, gps1:GPSPosition, gps2: GPSPosition, live:LiveReservation, live2:LiveReservation] {
