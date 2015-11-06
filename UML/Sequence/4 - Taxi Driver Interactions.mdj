@@ -46,7 +46,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFQvZHGArGzv28="
 							},
-							"name": "Customer requests a LiveReservation",
+							"name": "Driver accepts customer’s request",
 							"visible": true,
 							"defaultDiagram": false,
 							"ownedViews": [
@@ -241,11 +241,11 @@
 											"containerExtending": false,
 											"left": 302.97900390625,
 											"top": 5,
-											"width": 218.48974609375,
+											"width": 197.5107421875,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "Customer requests a LiveReservation",
+											"text": "Driver accepts customer’s request",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -2890,6 +2890,7 @@
 					"visibility": "public",
 					"isStatic": false,
 					"isLeaf": false,
+					"type": "",
 					"isReadOnly": false,
 					"isOrdered": false,
 					"isUnique": false,
