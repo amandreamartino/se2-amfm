@@ -124,7 +124,7 @@ assert noCustomersWithSameSSN {
 
 }
 
-check noCustomersWithSameSSN for 20
+check noCustomersWithSameSSN for 10
 
 assert noCustomersWithSameEmail {
 		
@@ -132,7 +132,7 @@ assert noCustomersWithSameEmail {
 
 }
 
-check noCustomersWithSameEmail for 30
+check noCustomersWithSameEmail for 10
 
 assert noRegisteredUserWithSameID {
 
@@ -140,7 +140,7 @@ assert noRegisteredUserWithSameID {
 
 }
 
-check noRegisteredUserWithSameID for 20
+check noRegisteredUserWithSameID for 10
 
 assert disjointedAreas {
 	
@@ -148,41 +148,46 @@ assert disjointedAreas {
 
 }
 
-check disjointedAreas for 20
+check disjointedAreas for 10
 
 assert driverInQueueAndGPS {
 	
 	all drv:TaxiDriver | ( one area:Area | drv in area.queueOfDrivers ) implies one gps:GPSPosition | drv.currentPosition=gps	
 
 }
+check driverInQueueAndGPS for 10
 
-check driverInQueueAndGPS for 20
 
-
-pred show (drv:TaxiDriver) {
+pred showComplex (drv:TaxiDriver, drv2:TaxiDriver) {
 
 	no area:Area | drv in area.queueOfDrivers
- 	//one gps:GPSPosition | drv.currentPosition=gps
-	
-	/*
-	#cus1.reservations=2
-	#cus2.reservations=3
-	#cus3.reservations=1
-
-	no res:LiveReservation | res in cus3.reservations
-
-	live2 in cus1.reservations
-	live in cus2.reservations
-	live2.from = gps1
-	live.from = gps1	
-*/
-	#Area=1
-	#Reservation=1
-	#LiveReservation=1
-	#Customer=4
+	one res:Reservation | drv.isCurrentlyBusyOn=res
+	one res:Reservation | drv.isCurrentlyBusyOn!=res && res.takenCareBy=drv
+	#Area=2
+	#Reservation=5
+	#LiveReservation=2
+	#Customer=2
 	#TaxiDriver=5
-	#GPSPosition=4
+	#GPSPosition>0
+	#Visitor=2
+	#SysAdmin=1
 
 }
 
-run show for 10
+pred showSimple() {
+
+	#Area=1
+	#Reservation=2
+	#LiveReservation=1
+	#Customer=2
+	#TaxiDriver=2
+	#GPSPosition>0
+	#Visitor=0
+	#SysAdmin=0
+
+}
+
+
+run showSimple for 10
+
+run showComplex for 10
