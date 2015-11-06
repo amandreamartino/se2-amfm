@@ -72,9 +72,9 @@
 													"showShadow": true,
 													"containerChangeable": false,
 													"containerExtending": false,
-													"left": 71,
+													"left": 70.97900390625,
 													"top": 5,
-													"width": 80,
+													"width": 79.025390625,
 													"height": 13,
 													"autoResize": false,
 													"underline": false,
@@ -99,7 +99,7 @@
 													"containerExtending": false,
 													"left": 5,
 													"top": 5,
-													"width": 61,
+													"width": 60.97900390625,
 													"height": 13,
 													"autoResize": false,
 													"underline": false,
@@ -753,7 +753,7 @@
 													"containerExtending": false,
 													"left": 110,
 													"top": 120,
-													"width": 124,
+													"width": 124.26806640625,
 													"height": 13,
 													"autoResize": false,
 													"alpha": 1.5111646225427493,
@@ -920,7 +920,7 @@
 													"containerExtending": false,
 													"left": 155,
 													"top": 159,
-													"width": 135,
+													"width": 134.39892578125,
 													"height": 13,
 													"autoResize": false,
 													"alpha": -3.2691022279757966,
@@ -1087,7 +1087,7 @@
 													"containerExtending": false,
 													"left": 401,
 													"top": 260,
-													"width": 71,
+													"width": 70.8017578125,
 													"height": 13,
 													"autoResize": false,
 													"alpha": 1.5707963267948966,
@@ -1254,7 +1254,7 @@
 													"containerExtending": false,
 													"left": 376,
 													"top": 357,
-													"width": 91,
+													"width": 91.03173828125,
 													"height": 13,
 													"autoResize": false,
 													"alpha": 3.0367157239919784,
@@ -1416,7 +1416,7 @@
 													"showShadow": true,
 													"containerChangeable": false,
 													"containerExtending": false,
-													"left": 73,
+													"left": 72.72998046875,
 													"top": 229,
 													"width": 1,
 													"height": 13,
@@ -1442,7 +1442,7 @@
 													"containerExtending": false,
 													"left": 53,
 													"top": 229,
-													"width": 15,
+													"width": 14.72998046875,
 													"height": 13,
 													"autoResize": false,
 													"underline": false,
@@ -1487,7 +1487,7 @@
 																	"containerExtending": false,
 																	"left": 68,
 																	"top": 262,
-																	"width": 193,
+																	"width": 192.92431640625,
 																	"height": 13,
 																	"autoResize": false,
 																	"underline": false,
@@ -1541,7 +1541,7 @@
 																	"containerExtending": false,
 																	"left": 68,
 																	"top": 312,
-																	"width": 32,
+																	"width": 31.07177734375,
 																	"height": 13,
 																	"autoResize": false,
 																	"underline": false,
@@ -1608,6 +1608,78 @@
 											"operandCompartment": {
 												"$ref": "AAAAAAFQvTUPaKvjwis="
 											}
+										},
+										{
+											"_type": "UMLEndpointView",
+											"_id": "AAAAAAFQ294He8PAx/w=",
+											"_parent": {
+												"$ref": "AAAAAAFQvSWmtKoNEDU="
+											},
+											"model": {
+												"$ref": "AAAAAAFQ294He8O+kVU="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 72,
+											"top": 384,
+											"width": 15,
+											"height": 15,
+											"autoResize": false
+										},
+										{
+											"_type": "UMLEndpointView",
+											"_id": "AAAAAAFQ294W18PFWkY=",
+											"_parent": {
+												"$ref": "AAAAAAFQvSWmtKoNEDU="
+											},
+											"model": {
+												"$ref": "AAAAAAFQ294W18PDpJ4="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 328,
+											"top": 384,
+											"width": 15,
+											"height": 15,
+											"autoResize": false
+										},
+										{
+											"_type": "UMLEndpointView",
+											"_id": "AAAAAAFQ295VFsPNIVQ=",
+											"_parent": {
+												"$ref": "AAAAAAFQvSWmtKoNEDU="
+											},
+											"model": {
+												"$ref": "AAAAAAFQ295VFsPLZWk="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 528,
+											"top": 384,
+											"width": 15,
+											"height": 15,
+											"autoResize": false
 										}
 									],
 									"showSequenceNumber": true,
@@ -1726,6 +1798,33 @@
 										"$ref": "AAAAAAFQvSaSY6pbCcw="
 									},
 									"isMultiInstance": false
+								},
+								{
+									"_type": "UMLEndpoint",
+									"_id": "AAAAAAFQ294He8O+kVU=",
+									"_parent": {
+										"$ref": "AAAAAAFQvSWmtKoMDLE="
+									},
+									"name": "Endpoint1",
+									"visibility": "public"
+								},
+								{
+									"_type": "UMLEndpoint",
+									"_id": "AAAAAAFQ294W18PDpJ4=",
+									"_parent": {
+										"$ref": "AAAAAAFQvSWmtKoMDLE="
+									},
+									"name": "Endpoint2",
+									"visibility": "public"
+								},
+								{
+									"_type": "UMLEndpoint",
+									"_id": "AAAAAAFQ295VFsPLZWk=",
+									"_parent": {
+										"$ref": "AAAAAAFQvSWmtKoMDLE="
+									},
+									"name": "Endpoint3",
+									"visibility": "public"
 								}
 							],
 							"fragments": [
