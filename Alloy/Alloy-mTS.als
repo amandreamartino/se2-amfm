@@ -97,7 +97,7 @@ fact taxiDriverProperties {
 	//if a taxi driver is busy on a reservation then this reservation is taken care by this driver
 	all drv:TaxiDriver | all res:Reservation | (drv.isCurrentlyBusyOn=res implies res.takenCareBy=drv)	
 	//a taxi driver is in a list when he/she is working. gps position must be saved only when the driver is working.
-	all drv: TaxiDriver | one area:Area | (drv in area.queueOfDrivers iff (one gps:GPSPosition | drv.currentPosition=gps))
+	all drv:TaxiDriver | (one gps:GPSPosition | drv.currentPosition=gps) iff (one area:Area | drv in area.queueOfDrivers) 
 	//every taxi driver is in at most one area at time
 	all drv: TaxiDriver | lone area1: Area | drv in area1.queueOfDrivers
 	
@@ -105,8 +105,8 @@ fact taxiDriverProperties {
 
 fact gpsPositionProperties {
 	
-	//No gps position in the system not associated to any entity that requires a gps position
-	all gps:GPSPosition | some drv:TaxiDriver | some res:Reservation | drv.currentPosition = gps or res.from = gps or res.to = gps	
+	//No gps position in the system not associated to any entity that requires a gps position	
+	no gps:GPSPosition | (no drv:TaxiDriver | drv.currentPosition=gps) and (no res:Reservation | res.from=gps) and (no res:Reservation | res.to = gps)
 
 }
 
@@ -116,6 +116,7 @@ fact liveReservationProperties {
 	all res:LiveReservation | all cus:Customer | res in cus.reservations implies res.from=cus.currentPosition
 	
 }
+
 
 assert noCustomersWithSameSSN {
 	
@@ -149,11 +150,21 @@ assert disjointedAreas {
 
 check disjointedAreas for 20
 
-
-
-
-pred show [cus1:Customer, cus2:Customer, cus3:Customer, gps1:GPSPosition, gps2: GPSPosition, live:LiveReservation, live2:LiveReservation] {
+assert driverInQueueAndGPS {
 	
+	all drv:TaxiDriver | ( one area:Area | drv in area.queueOfDrivers ) implies one gps:GPSPosition | drv.currentPosition=gps	
+
+}
+
+check driverInQueueAndGPS for 20
+
+
+pred show (drv:TaxiDriver) {
+
+	no area:Area | drv in area.queueOfDrivers
+ 	//one gps:GPSPosition | drv.currentPosition=gps
+	
+	/*
 	#cus1.reservations=2
 	#cus2.reservations=3
 	#cus3.reservations=1
@@ -164,12 +175,14 @@ pred show [cus1:Customer, cus2:Customer, cus3:Customer, gps1:GPSPosition, gps2: 
 	live in cus2.reservations
 	live2.from = gps1
 	live.from = gps1	
-
+*/
 	#Area=1
-	#Reservation=7
-	#LiveReservation=2
-	#Customer=5
+	#Reservation=1
+	#LiveReservation=1
+	#Customer=4
+	#TaxiDriver=5
+	#GPSPosition=4
 
 }
 
-run show for 20
+run show for 10
