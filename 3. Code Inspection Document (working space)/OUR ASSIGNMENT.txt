@@ -1,0 +1,16 @@
+Professor: Mirandola
+Students: Andrea Martino, Francesco Marchesani
+
+-----------------------------------------
+
+Methods:
+
+Name:execute( AdminCommandContext context )
+Location:appserver/deployment/javaee-core/src/main/java/org/glassfish/javaee/core/deployment/ListSubComponentsCommand.java
+
+Name:getSubModuleListForEar( com . sun . enterprise . deployment . Application application , String type )
+Location:appserver/deployment/javaee-core/src/main/java/org/glassfish/javaee/core/deployment/ListSubComponentsCommand.java
+
+------------------------------------------
+
+@ JAVADOC: http://glassfish.pompel.me/
