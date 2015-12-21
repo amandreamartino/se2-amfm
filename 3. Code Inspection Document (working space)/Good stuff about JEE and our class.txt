@@ -1,0 +1,19 @@
+WAR = WEB APPLICATION ARCHIVE
+EAR = ENTERPRISE ARCHIVE
+
+foo.ear
+ |
+ |-- foo-war.war
+ |
+ |-- foo-ejb.jar
+ |
+ \-- lib
+      |---- foo-client.jar
+      |
+      \---- (other common jars)
+
+EAR (Enterprise ARchive) is a file format used by Java EE for packaging one or more modules into a single archive so that the deployment of the various modules onto an application server happens simultaneously and coherently. It also contains XML files called deployment descriptors which describe how to deploy the modules.
+
+Ant, Maven, or Gradle can be used to build EAR files.
+
+URI = Uniform Resource Identifier
