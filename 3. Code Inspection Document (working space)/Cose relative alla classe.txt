@@ -1,0 +1,38 @@
+@Contract
+public interface AdminCommand
+This is an admin command interface, command implementation have to be stateless.
+
+Questa è l'interfaccia di ListSubComponentsCommand
+In sostanza con questa classe aggiungi un sottocomando asadmin (tipo "asadmin sottocomando")
+
+Quindi si usa come:
+asadmin list-sub-components
+Di solito i comandi sul server GlassFish sono di tre tipo (o meglio, si usa questa convenzione):
+create-...
+delete-...
+list-...
+Per rispettivamente creare, eliminare, elencare oggetti. In questo caso il comando a noi assegnato "list-sub-components" è del terzo tipo.
+----
+@Service(name="list-sub-components")
+
+Serve per resource injection/extraction
+Identifica la classe come servizio, quindi non importa la location dell'implementazione a patto che il modulo contente l'implementazione sia conosciuto dalla runtime GlassFish
+----
+@I18n("list.sub.components")
+
+Usato per internazionalizzazione
+----
+@PerLookup
+
+Nuova istanza creata ogni volta che il comando viene chiamato (per assicurare che sia stateless, dato più client potrebbero chiamare il sottocomando contemporaneamente)
+----
+@CommandLock(CommandLock.LockType.NONE)
+
+Annotation used to indicate what type of lock to acquire before executing an admin command. In questo caso il comando non richiede nessun tipo di lock.
+----
+@Param()
+private String paramname = NULL;
+
+Aggiunge un qualsiasi parametro al sottocomando. Possono essere di due tipi: opzione (default) o operando.
+----
+
