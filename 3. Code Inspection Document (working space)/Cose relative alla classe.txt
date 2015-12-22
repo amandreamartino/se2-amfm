@@ -36,3 +36,8 @@ private String paramname = NULL;
 Aggiunge un qualsiasi parametro al sottocomando. Possono essere di due tipi: opzione (default) o operando.
 ----
 
+LINK:
+
+https://blogs.oracle.com/nachi/entry/how_to_add_a_new
+
+https://docs.oracle.com/html/E24927_01/extending-asadmin.htm#ghrqj
