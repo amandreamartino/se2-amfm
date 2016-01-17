@@ -1,0 +1,5 @@
+nei progetti difficili è difficile trovare un test intelligente
+alto coupling 
+
+alcune funzioni da in our opinion sono da testare solo alla fine anche con i pattern (observable/observer)
+dependencies 
