@@ -1,0 +1,30 @@
+Test Procedure Identifier TP1
+Purpose This test procedure verifies wether the System Manager:
+• can handle command-line input by SysAdmin Client 
+• can handle gui(*) input by SysAdmin Client
+• can handle customer input transmitted via Customer Manager
+• can handle taxi driver input transmitted via Taxi Driver Manager
+• can output requested information to a customer via Customer Manager
+• can output requested information to a taxi driver via Taxi Driver Manager
+155 Procedure Steps  //da vedere
+
+Test Procedure Identifier TP2
+Purpose This test procedure verifies wether the Customer Client software:
+• can handle input (mobile Application User Interface)
+• can handle input (web app User Interface)
+• can output requested information to the Customer Manager and then to the System Manager
+• can output information to the Client Manager and then to the System Manager
+Procedure Steps Execute  //da vedere
+
+Test Procedure Identifier TP3
+Purpose This test procedure verifies wether the Taxi Driver Client software:
+• can handle input (taxi driver User Interface)
+• can output requested information to the Taxi Driver Manager and then to the System Manager
+• can output information to the Taxi Driver Manager and then to the System Manager
+Procedure Steps Execute  //da vedere
+
+
+
+
+(*) mettere gui in definitions and abbreviations
+
